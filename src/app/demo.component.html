@@ -1,23 +1,25 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
 
 	<p>
 		<label for="firstname">First Name </label>
 		<input type="text" id="firstname" name="firstname" formControlName="firstname">
       </p>
-		<p *ngIf="this.contactForm.controls.firstname.pristine">
-			when the condition is false 
-
-
-		</p>
+      <p
+			*ngIf="contactForm.controls.firstname.errors?.required && contactForm.controls.firstname?.invalid && (contactForm.controls.firstname?.touched || contactForm.controls.firstname?.dirty)">
+			firstname is required </p>      <p
+			*ngIf="contactForm.controls.firstname.errors?.maxlength && contactForm.controls.firstname?.invalid && (contactForm.controls.firstname?.touched || contactForm.controls.firstname?.dirty)">
+			firstname max 10 </p>
 		<p>
-			<label for="lastname">Last Name </label>
-			<input type="text" id="lastname" name="lastname" formControlName="lastname">
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" formControlName="email">
   </p>
+  <p
+			*ngIf="contactForm.controls.email.errors?.required && contactForm.controls.email?.invalid && (contactForm.controls.email?.touched || contactForm.controls.email?.dirty)">
+			email is required </p>      <p
+			*ngIf="contactForm.controls.email.errors?.pattern && contactForm.controls.email?.invalid && (contactForm.controls.email?.touched || contactForm.controls.email?.dirty)">
+			email wrong pattern </p>
+		<p>
 
-			<p>
-				<label for="email">Email </label>
-				<input type="text" id="email" name="email" formControlName="email">
-  </p>
 
 
 				<p>

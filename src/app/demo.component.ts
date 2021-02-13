@@ -18,9 +18,12 @@ export class newComponent {
 
   title = "new app";
   contactForm = new FormGroup({
-    firstname: new FormControl('',[Validators.required,Validators.minLength(20)]),
+    firstname: new FormControl("", [
+      Validators.required,
+      Validators.maxLength(10)
+    ]),
     lastname: new FormControl(),
-    email: new FormControl(),
+    email: new FormControl('',[Validators.required,Validators.pattern('^[a-z]+@{1}[a-z]+.{1}[a-z]+$')]),
     website: new FormControl(),
     phone: new FormControl(),
     address: new FormGroup({
@@ -31,9 +34,7 @@ export class newComponent {
     dob: new FormControl()
   });
 
-
-
   onSubmit() {
-    console.log(this.contactForm.controls.firstname.pristine);
+    console.log(this.contactForm.controls);
   }
 }
