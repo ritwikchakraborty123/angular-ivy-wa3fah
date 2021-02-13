@@ -1,0 +1,32 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+	<p>
+		<label for="firstname">First Name </label>
+		<input type="text" id="firstname" name="firstname" formControlName="firstname">
+  </p>
+
+		<p>
+			<label for="lastname">Last Name </label>
+			<input type="text" id="lastname" name="lastname" formControlName="lastname">
+  </p>
+
+			<p>
+				<label for="email">Email </label>
+				<input type="text" id="email" name="email" formControlName="email">
+  </p>
+
+
+				<p>
+					<label for="dob">Year of Birth </label>
+					<select id="dob" name="dob" formControlName="dob">
+      <option [ngValue]="c" *ngFor="let c of year">
+        {{c}}
+      </option>
+    </select>
+				</p>
+
+				<p>
+					<button type="submit">Submit</button>
+				</p>
+
+</form>
