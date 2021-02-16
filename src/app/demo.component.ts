@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { own } from './own.validator';
+import { cityvalid } from './cityvalid.validator';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -18,6 +20,8 @@ export class newComponent {
 
   title = "new app";
   contactForm = new FormGroup({
+    // own: new FormControl('', [own]),
+
     firstname: new FormControl("", [
       Validators.required,
       Validators.maxLength(10)
@@ -25,15 +29,17 @@ export class newComponent {
     lastname: new FormControl(),
     email: new FormControl('',[Validators.required,Validators.pattern('^[a-z]+@{1}[a-z]+.{1}[a-z]+$')]),
     website: new FormControl(),
-    phone: new FormControl(),
+    phone: new FormControl('',[own,Validators.required]),
     address: new FormGroup({
-      city: new FormControl(),
+      city: new FormControl('',[cityvalid,Validators.required]),
       zip: new FormControl(),
       state: new FormControl()
     }),
     dob: new FormControl()
   });
-
+  // get city() {
+  //   return this.contactForm.get('city');
+  // }
   onSubmit() {
     console.log(this.contactForm.controls);
   }

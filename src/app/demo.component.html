@@ -18,9 +18,27 @@
 			email is required </p>      <p
 			*ngIf="contactForm.controls.email.errors?.pattern && contactForm.controls.email?.invalid && (contactForm.controls.email?.touched || contactForm.controls.email?.dirty)">
 			email wrong pattern </p>
-		<p>
-
-
+		
+	<p>
+			<label for="phone">Phone</label>
+			<input type="text" id="phone" name="phone" formControlName="phone">
+  </p>
+<p *ngIf="contactForm.controls.phone.errors?.own && contactForm.controls.phone?.invalid && (contactForm.controls.phone?.touched || contactForm.controls.phone?.dirty)">
+			start with 9 number </p>
+      
+  <p *ngIf="contactForm.controls.phone.errors?.required && contactForm.controls.phone?.invalid && (contactForm.controls.phone?.touched || contactForm.controls.phone?.dirty)">
+			Number is required </p>      
+		
+<div formGroupName='address'>
+			<label for="city">City</label>
+			<input type="text" id="city" name="city" formControlName="city">
+  
+<p *ngIf="contactForm.get('address.city').errors?.cityvalid && contactForm.get('address.city')?.invalid && (contactForm.get('address.city')?.touched || contactForm.get('address,city')?.dirty)">
+			city should be howrah or kolkata </p>
+    <p *ngIf="contactForm.get('address.city').errors?.required && contactForm.get('address.city')?.invalid && (contactForm.get('address.city')?.touched || contactForm.get('address,city')?.dirty)">
+			City is required</p>
+  
+</div>
 
 				<p>
 					<label for="dob">Year of Birth </label>
