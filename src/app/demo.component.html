@@ -18,7 +18,15 @@
 			email is required </p>      <p
 			*ngIf="contactForm.controls.email.errors?.pattern && contactForm.controls.email?.invalid && (contactForm.controls.email?.touched || contactForm.controls.email?.dirty)">
 			email wrong pattern </p>
-		
+	<p>
+			<label for="website">Website</label>
+			<input type="text" id="website" name="website" formControlName="website">
+  </p>
+  <p
+			*ngIf="contactForm.controls.website.errors?.required && contactForm.controls.website?.invalid && (contactForm.controls.website?.touched || contactForm.controls.website?.dirty)">
+			website is required </p>      <p
+			*ngIf="contactForm.controls.website.errors?.pattern && contactForm.controls.website?.invalid && (contactForm.controls.website?.touched || contactForm.controls.webstie?.dirty)">
+			website wrong pattern </p>
 	<p>
 			<label for="phone">Phone</label>
 			<input type="text" id="phone" name="phone" formControlName="phone">

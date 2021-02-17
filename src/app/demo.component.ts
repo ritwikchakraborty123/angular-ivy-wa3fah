@@ -27,8 +27,8 @@ export class newComponent {
       Validators.maxLength(10)
     ]),
     lastname: new FormControl(),
-    email: new FormControl('',[Validators.required,Validators.pattern('^[a-z]+@{1}[a-z]+.{1}[a-z]+$')]),
-    website: new FormControl(),
+    email: new FormControl('',[Validators.required,Validators.pattern('\\S+\@[a-z]+\.(com|in|org|co)')]),
+    website: new FormControl('',[Validators.required,Validators.pattern('^((https\:\/\/www\.)|(http\:\/\/www\.)|(www\.))?[a-zA-Z0-9\-]+\.(com|in|org)(\\S)*$')]),
     phone: new FormControl('',[own,Validators.required]),
     address: new FormGroup({
       city: new FormControl('',[cityvalid,Validators.required]),
